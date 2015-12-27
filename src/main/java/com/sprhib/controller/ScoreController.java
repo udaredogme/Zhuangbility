@@ -40,7 +40,7 @@ public class ScoreController
     @RequestMapping(value = "/list")
     public ModelAndView listOfScores()
     {
-        ModelAndView modelAndView = new ModelAndView("list-of-students");
+        ModelAndView modelAndView = new ModelAndView("list-of-scores");
         List<Score> scores = scoreService.getScores();
         modelAndView.addObject("scores",scores);
 

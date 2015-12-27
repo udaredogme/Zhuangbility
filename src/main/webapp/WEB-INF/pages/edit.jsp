@@ -147,32 +147,32 @@
                         </tr>
                     </c:forEach>
                     </tbody>
-                    <table class="table table-striped">
-                        <tbody>
-                        <thead>
+                    </table>
+                <table class="table table-striped">
+                    <tbody>
+                    <thead>
                     <tr>
-                        <td>职工编号</td>
-                        <td>姓名</td>
-                        <td>部门</td>
-                        <td>操作</td>
+                        <th>科目名称</th>
+                        <th>学生</th>
+                        <th>教师</th>
+                        <th>分数</th>
                     </tr>
                     </thead>
-                        <c:forEach var="staff" items="${staffs}">
-                            <tr>
-                                <td>${staff.stfID}</td>
-                                <td>${staff.name}</td>
-                                <td>${staff.college}</td>
-                                <td><a href="${pageContext.request.contextPath}/editinfo/edit_stf/${staff.id}.html">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
-                                    &nbsp;/&nbsp;
-                                    <a href="${pageContext.request.contextPath}/editinfo/delete_stf/${staff.id}.html">
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
-                                </td>
-                            </tr>
-                        </c:forEach>
-
-                        </tbody>
-                    </table>
+                    <c:forEach var="score" items="${scores}">
+                        <tr>
+                            <td>${score.course}</td>
+                            <td>${score.student}</td>
+                            <td>${score.teacher}</td>
+                            <td>${score.value}</td>
+                            <td><a href="${pageContext.request.contextPath}/editinfo/edit_sco/${score.id}.html">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
+                                &nbsp;/&nbsp;
+                                <a href="${pageContext.request.contextPath}/editinfo/delete_sco/${score.id}.html">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
                 </table>
                 <table class="table table-striped">
                     <tbody>
@@ -201,6 +201,35 @@
                     </c:forEach>
                     </tbody>
                 </table>
+                    <table class="table table-striped">
+                        <tbody>
+                        <thead>
+                    <tr>
+                        <td>职工编号</td>
+                        <td>姓名</td>
+                        <td>部门</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                        <c:forEach var="staff" items="${staffs}">
+                            <tr>
+                                <td>${staff.stfID}</td>
+                                <td>${staff.name}</td>
+                                <td>${staff.college}</td>
+                                <td><a href="${pageContext.request.contextPath}/editinfo/edit_stf/${staff.id}.html">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
+                                    &nbsp;/&nbsp;
+                                    <a href="${pageContext.request.contextPath}/editinfo/delete_stf/${staff.id}.html">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
+                        </tbody>
+                    </table>
+                </table>
+
+
             </div>
         </div>
     </div>

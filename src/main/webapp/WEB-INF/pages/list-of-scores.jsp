@@ -63,14 +63,14 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li><a href="/overview">概览 </a></li>
-                <li class="active" ><a href="${pageContext.request.contextPath}/student/list.html">
-                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"> </span>学生信息<span class="sr-only">(current)</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/student/list.html">
+                    学生信息<span class="sr-only">(current)</span></a></li>
                 <li><a href="/teacher/list">教师信息</a></li>
                 <li><a href="/staff/list">职工信息</a></li>
             </ul>
             <ul class="nav nav-sidebar">
                 <li><a href="/course/list">课程信息</a> </li>
-                <li><a href="/score/list">成绩信息</a></li>
+                <li class="active" ><a href="/score/list"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"> </span>成绩信息</a></li>
                 <li><a href="">成绩排名</a></li>
                 <li><a href="">考试信息</a></li>
 
@@ -105,13 +105,13 @@
                 </div>
             </div>
 
-            <h2 class="sub-header">学生信息</h2>
+            <h2 class="sub-header">成绩信息</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>科目</th>
                         <th>学生</th>
+                        <th>科目</th>
                         <th>教师</th>
                         <th>分数</th>
                     </tr>
@@ -119,8 +119,8 @@
                     <tbody>
                     <c:forEach var="score" items="${scores}">
                         <tr>
-                            <td>${score.course}</td>
                             <td>${score.student}</td>
+                            <td>${score.course}</td>
                             <td>${score.teacher}</td>
                             <td>${score.value}</td>
                         </tr>
