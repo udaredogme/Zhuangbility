@@ -24,4 +24,4 @@ IDE：`IntelliJ IDEA 15`
 
 初始运行的时候应该是先`$ mvn:clean`然后`$ mvn jetty:run`
 
-其他问题请[@SunskyXH](http://weibo.com/2864813750/profile?topnav=1&wvr=6&is_all=1)。虽然估计我都不会 嘻嘻嘻：）
+其他问题请[@SunskyXH](http://weibo.com/2864813750/profile?topnav=1&wvr=6&is_all=1)或者发邮箱<y445360776@qq.com>反正我不怎么看。虽然估计我都不会 嘻嘻嘻：）
