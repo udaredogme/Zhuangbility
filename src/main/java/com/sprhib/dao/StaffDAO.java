@@ -4,9 +4,7 @@ import com.sprhib.model.Staff;
 
 import java.util.List;
 
-/**
- * Created by SunskyXH on 15/12/21.
- */
+
 public interface StaffDAO
 {
     public void addStaff(Staff staff);

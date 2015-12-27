@@ -1,11 +1,8 @@
 package com.sprhib.controller;
 
-import com.sprhib.model.Staff;
-import com.sprhib.model.Student;
-import com.sprhib.model.Teacher;
-import com.sprhib.service.StaffService;
-import com.sprhib.service.StudentService;
-import com.sprhib.service.TeacherService;
+import com.sprhib.model.*;
+import com.sprhib.service.*;
+import org.hibernate.annotations.ForeignKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,6 +28,12 @@ public class editController
     @Autowired
     private StaffService staffService;
 
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private ScoreService scoreService;
+
     @RequestMapping()
     public ModelAndView goEdit()
     {
@@ -39,6 +42,12 @@ public class editController
         modelAndView.addObject("students",students);
         List<Teacher> teachers = teacherService.getTeachers();
         modelAndView.addObject("teachers",teachers);
+        List<Staff> staffs = staffService.getStaffs();
+        modelAndView.addObject("staffs",staffs);
+        List<Course> courses = courseService.getCourses();
+        modelAndView.addObject("courses",courses);
+        List<Score> scores = scoreService.getScores();
+        modelAndView.addObject("scores",scores);
         return modelAndView;
     }
 
@@ -126,9 +135,61 @@ public class editController
     {
         ModelAndView modelAndView = new ModelAndView("overview");
         staffService.deleteStaff(id);
-        String message = "Staff was seccessfully deleted.";
+        String message = "Staff was successfully deleted.";
         modelAndView.addObject("message",message);
         return modelAndView;
     }
 
+    @RequestMapping(value = "/edit_cou/{id}",method = RequestMethod.GET)
+    public ModelAndView editCourse(@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("edit-course-form");
+        Course course = courseService.getCourse(id);
+        modelAndView.addObject("course",course);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/edit_cou/{id}",method = RequestMethod.POST)
+    public ModelAndView editingCourse(@ModelAttribute Course course,@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("overview");
+        courseService.updateCourse(course);
+        String message = "Course was successfully edited.";
+        modelAndView.addObject("message",message);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/delete_cou/{id}",method = RequestMethod.GET)
+    public ModelAndView deleteCourse(@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("overview");
+        courseService.deleteCourse(id);
+        String message = "Course was successfully deleted.";
+        modelAndView.addObject("message",message);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/edit_sco/{id}",method = RequestMethod.GET)
+    public ModelAndView editScore(@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("edit-score-form");
+        Score score = scoreService.getScore(id);
+        modelAndView.addObject("score",score);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/edit_sco/{id}",method = RequestMethod.POST)
+    public ModelAndView editingScore(@ModelAttribute Score score,@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("overview");
+        scoreService.updateScore(score);
+        String message = "Score was successfully edited.";
+        modelAndView.addObject("message",message);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/delete_sco/{id}",method = RequestMethod.GET)
+    public ModelAndView deleteScore(@PathVariable Integer id)
+    {
+        ModelAndView modelAndView = new ModelAndView("overview");
+        scoreService.deleteScore(id);
+        String message = "Score was successfully deleted.";
+        modelAndView.addObject("message",message);
+        return modelAndView;
+    }
 }

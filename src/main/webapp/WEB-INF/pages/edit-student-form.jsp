@@ -37,7 +37,7 @@
 	<p>${message}</p>
 
 	<form:form class="form-signin" method="POST" commandName="student" action="${pageContext.request.contextPath}/editinfo/edit_stu/${student.id}.html">
-	<h2 class="form-signin-heading">修改成绩</h2>
+	<h2 class="form-signin-heading">修改学生</h2>
 		<form:input type="text"  class="form-control" placeholder="姓名" path="name" />
 		<form:input type="text"  class="form-control" placeholder="学号" path="stuID"  />
 	<br>

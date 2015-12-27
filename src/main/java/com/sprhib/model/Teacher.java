@@ -5,9 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by SunskyXH on 15/12/20.
- */
 
 @Entity
 @Table(name="teachers")
