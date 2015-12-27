@@ -27,7 +27,6 @@ public class StaffDAOImpl implements StaffDAO {
         Staff staffToUpdate = getStaff(staff.getId());
         staffToUpdate.setName(staff.getName());
         staffToUpdate.setCollege(staff.getCollege());
-        staffToUpdate.setSpeclity(staff.getSpeclity());
         staffToUpdate.setStfID(staff.getStfID());
     }
 

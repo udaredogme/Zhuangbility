@@ -38,9 +38,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/student/add"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span>添加成绩</a></li>
-                <li><a href="/teacher/add">添加教师</a></li>
-                <li><a href="/stuff/add">添加职工</a></li>
+                <li class="dropdown">
+                    <a href="#" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span>添加<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/student/add">添加学生</a></li>
+                        <li><a href="/teacher/add">添加教师</a></li>
+                        <li><a href="/staff/add">添加职工</a></li>
+                        <li><a href="/course/add">添加课程</a></li>
+                        <li><a href="/score/add">添加成绩</a></li>
+                    </ul>
+                </li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="搜索...">
@@ -57,11 +65,12 @@
                 <li><a href="/overview">概览 </a></li>
                 <li><a href="/student/list">学生信息</a></li>
                 <li><a href="/teacher/list">教师信息</a></li>
-                <li><a href="/stuff/list">职工信息</a></li>
+                <li><a href="/staff/list">职工信息</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="">成绩信息</a></li>
-                <li><a href="">成绩排名</a></li>
+                <li><a href="/course/list">课程信息</a> </li>
+                <li><a href="/score/list">成绩信息</a></li>
+                <li><a href="/score/list">成绩排名</a></li>
                 <li><a href="">考试信息</a></li>
 
             </ul>
@@ -133,6 +142,59 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
                                 &nbsp;/&nbsp;
                                 <a href="${pageContext.request.contextPath}/editinfo/delete_tea/${teacher.id}.html">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                    <table class="table table-striped">
+                        <tbody>
+                        <thead>
+                    <tr>
+                        <td>职工编号</td>
+                        <td>姓名</td>
+                        <td>部门</td>
+                        <td>操作</td>
+                    </tr>
+                    </thead>
+                        <c:forEach var="staff" items="${staffs}">
+                            <tr>
+                                <td>${staff.stfID}</td>
+                                <td>${staff.name}</td>
+                                <td>${staff.college}</td>
+                                <td><a href="${pageContext.request.contextPath}/editinfo/edit_stf/${staff.id}.html">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
+                                    &nbsp;/&nbsp;
+                                    <a href="${pageContext.request.contextPath}/editinfo/delete_stf/${staff.id}.html">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
+                        </tbody>
+                    </table>
+                </table>
+                <table class="table table-striped">
+                    <tbody>
+                    <thead>
+                    <tr>
+                        <th>课程编号</th>
+                        <th>名称</th>
+                        <th>学时</th>
+                        <th>学分</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <c:forEach var="course" items="${courses}">
+                        <tr>
+                            <td>${course.cID}</td>
+                            <td>${course.name}</td>
+                            <td>${course.time}</td>
+                            <td>${course.value}</td>
+                            <td><a href="${pageContext.request.contextPath}/editinfo/edit_cou/${course.id}.html">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span>修改</a>
+                                &nbsp;/&nbsp;
+                                <a href="${pageContext.request.contextPath}/editinfo/delete_cou/${course.id}.html">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>删除</a><br/>
                             </td>
                         </tr>

@@ -5,12 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by SunskyXH on 15/12/21.
- */
+
 
 @Entity
-@Table(name ="staffs" )
+@Table(name ="staffs")
 public class Staff
 {
     @Id
@@ -20,7 +18,6 @@ public class Staff
     private String name;
 
     private String college;
-    private String speclity;
     private String stfID;
 
     public Integer getId() {
@@ -46,14 +43,6 @@ public class Staff
 
     public void setCollege(String college) {
         this.college = college;
-    }
-
-    public String getSpeclity() {
-        return speclity;
-    }
-
-    public void setSpeclity(String speclity) {
-        this.speclity = speclity;
     }
 
     public String getStfID() {

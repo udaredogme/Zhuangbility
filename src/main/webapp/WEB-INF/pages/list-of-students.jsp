@@ -38,9 +38,17 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/student/add"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span>添加成绩</a></li>
-				<li><a href="/teacher/add">添加教师</a></li>
-				<li><a href="/stuff/add">添加职工</a></li>
+				<li class="dropdown">
+					<a href="#" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"> </span>添加<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/student/add">添加学生</a></li>
+						<li><a href="/teacher/add">添加教师</a></li>
+						<li><a href="/staff/add">添加职工</a></li>
+						<li><a href="/course/add">添加课程</a></li>
+						<li><a href="/score/add">添加成绩</a></li>
+					</ul>
+				</li>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="搜索...">
@@ -58,10 +66,11 @@
 				<li class="active" ><a href="${pageContext.request.contextPath}/student/list.html">
 					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"> </span>学生信息<span class="sr-only">(current)</span></a></li>
 				<li><a href="/teacher/list">教师信息</a></li>
-				<li><a href="/stuff/list">职工信息</a></li>
+				<li><a href="/staff/list">职工信息</a></li>
 			</ul>
 			<ul class="nav nav-sidebar">
-				<li><a href="">成绩信息</a></li>
+				<li><a href="/course/list">课程信息</a> </li>
+				<li><a href="/score/list">成绩信息</a></li>
 				<li><a href="">成绩排名</a></li>
 				<li><a href="">考试信息</a></li>
 
